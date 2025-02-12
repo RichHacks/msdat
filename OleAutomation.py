@@ -181,7 +181,7 @@ class OleAutomation (Mssql):
 		'''
 		logging.info("Copying the local file {0} to {1}".format(localFile, remoteFile))
 		data = getBinaryDataFromFile(localFile)
-		dataEncoded = "0x"+data.encode('hex')
+		dataEncoded = "0x"+data.hex()
 		status = self.writeFileBinary(remoteFile, dataEncoded)
 		if isinstance(status,Exception):
 			logging.info("Impossible to create the remote file {0}".format(remoteFile))
